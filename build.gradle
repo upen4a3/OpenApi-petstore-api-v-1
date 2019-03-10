@@ -1,0 +1,62 @@
+group 'petAPI'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+
+buildscript {
+	repositories {
+		mavenCentral()
+		maven { url "http://packages.confluent.io/maven/" }
+		maven { url 'https://plugins.gradle.org/m2/' }
+	
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+	baseName = 'gs-actuator-service'
+	version =  '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	
+
+	
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.1.3.RELEASE'
+	testCompile group: 'com.h2database', name: 'h2', version: '1.4.198'
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile 'org.codehaus.groovy:groovy-all:2.4.13'
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+	testCompile group: 'org.springframework', name: 'spring-test', version: '5.1.5.RELEASE'
+	testCompile("org.codehaus.groovy:groovy-all:2.4.5")
+	testCompile group: 'org.spockframework', name: 'spock-spring', version: '1.1-groovy-2.4'
+
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
+	
+
+	
+	
+	
+
+	
+}
